@@ -13,3 +13,4 @@ vcs.xml
 wsdl-generated-sources
 xds-generated-sources
 xsd-generated-sources
+/web/node_modules
