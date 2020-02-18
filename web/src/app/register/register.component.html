@@ -1,0 +1,26 @@
+<div class="form-container">
+  <div class="form" [formGroup]="registerForm">
+    <h2>Please enter your details:</h2>
+    <div class="form-row">
+      <div>Name:</div>
+      <input matInput formControlName="name" required type="text">
+    </div>
+    <div class="form-row">
+      <div>Login:</div>
+      <input matInput formControlName="login" required type="text">
+    </div>
+    <div class="form-row">
+      <div>Password:</div>
+      <input matInput formControlName="password" type="password" required>
+    </div>
+    <div class="form-row">
+      <div>Email:</div>
+      <input matInput formControlName="email" type="email" required>
+    </div>
+    <div class="form-row">
+      <div>Phone number:</div>
+      <input matInput formControlName="phone" type="text" required>
+    </div>
+    <button mat-raised-button color="primary">Submit</button>
+  </div>
+</div>

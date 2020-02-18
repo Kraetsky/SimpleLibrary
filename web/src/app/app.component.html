@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main">
+  <div class="header-wrapper">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <button mat-raised-button color="accent" (click)="logout()" [disabled]="isLoggedIn()">Log Out</button>
+  </div>
+  <router-outlet></router-outlet>
+
+</div>
+
+

@@ -1,0 +1,65 @@
+<div class="form-container">
+  <mat-table #table [dataSource]="datasource" class="mat-elevation-z8 table" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No.</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> Year</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.releaseYear}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfPages">
+      <mat-header-cell *matHeaderCellDef>Number Of Pages</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numberOfPages}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef> Author</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isAvailable">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Is available</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-icon *ngIf="element.isAvailable">check</mat-icon>
+        <mat-icon *ngIf="!element.isAvailable">close</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element" style="display: flex">
+        <ng-container>
+          <button mat-raised-button color="primary" (click)="openDialog(element, ModalMode.UPDATE)">
+            <mat-icon class="edit-button">edit</mat-icon>
+          </button>
+          <button mat-raised-button color="warn" (click)="remove(element)">
+            <mat-icon class="delete-button">delete</mat-icon>
+          </button>
+        </ng-container>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 class="paginator">
+  </mat-paginator>
+
+  <div class="add-book">
+    <div>You can add your own book to our library:</div>
+    <button mat-raised-button color="primary" (click)="openDialog(null, ModalMode.CREATE)">Add book</button>
+  </div>
+</div>

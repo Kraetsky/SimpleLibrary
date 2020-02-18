@@ -1,0 +1,31 @@
+<div class="modal">
+  <div class="header">
+    <h2>{{editMode ? 'Edit book:' : 'Add book:'}}</h2>
+  </div>
+  <div class="form" [formGroup]="form">
+    <div class="form-row">
+      <div>Name:</div>
+      <input matInput class="name-input" formControlName="name" required type="text">
+    </div>
+
+    <div class="form-row">
+      <div>Author:</div>
+      <input matInput class="name-input" formControlName="author" required type="text">
+    </div>
+
+    <div class="form-row">
+      <div>Year of publication:</div>
+      <input matInput class="name-input" formControlName="releaseYear" required type="text">
+    </div>
+
+    <div class="form-row">
+      <div>Number of pages:</div>
+      <input matInput class="name-input" formControlName="numberOfPages" required type="text">
+    </div>
+
+  </div>
+  <div class="buttons">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-flat-button color="primary" (click)="save()">Save</button>
+  </div>
+</div>

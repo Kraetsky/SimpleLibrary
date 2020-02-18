@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
+  width: 350px;
+  height: 310px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.form-row {
+  margin: 20px;
+}
+
+button {
+  margin: 15px;
+  .mat-raised-button.mat-primary {
+    color: greenyellow !important;
+  }
+}
+
+h2 {
+  margin: 20px 0 5px 20px;
+  text-align: center;
+}
+
+.mat-input-element {
+  width: 150px;
+  background: 0 0;
+  color: currentColor;
+  border: none;
+  outline: 0;
+  margin: 0 0 0 20px;
+  vertical-align: bottom;
+  text-align: inherit;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(133, 133, 133, 0.6);
+  font: inherit;
+}
+
+

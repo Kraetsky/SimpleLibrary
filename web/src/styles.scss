@@ -1,0 +1,86 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.main {
+  height: 100%;
+  position: relative;
+}
+
+.main::after {
+  background: url("/assets/main_background.jpeg") no-repeat;
+  background-size: cover;
+  content: "";
+  /*opacity: 0.8;*/
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+h1 {
+  color: blanchedalmond;
+  margin: 0;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-table {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.mat-paginator {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+app-book-modal {
+  width: 100%;
+  height: 100%;
+}
+
+mat-dialog-container.mat-dialog-container {
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: transparent;
+}
+
+.mat-raised-button {
+  min-width: 55px !important;
+  padding: 0;
+  border-radius: 10px !important;
+}
+
+.form-row {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+
+  input {
+    margin-left: 20px;
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(133, 133, 133, 0.6);
+    width: 150px;
+  }
+
+  div {
+    font-size: 18px;
+  }
+}
