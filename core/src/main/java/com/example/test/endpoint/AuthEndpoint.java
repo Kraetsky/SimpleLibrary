@@ -43,14 +43,14 @@ public class AuthEndpoint {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             User user = (User) authentication.getPrincipal();
             HttpHeaders headers = new HttpHeaders();
-
             headers.add(HttpHeaders.CONTENT_TYPE, "application/json");
             return ResponseEntity.ok()
                     .headers(headers)
                     .body(AuthResponse.builder()
                             .expiresIn(TOKEN_EXPIRATION_TIME)
                             .userId(user.getId())
-                            .idToken(jwtUtils.generate(user.getId())));
+                            .idToken(jwtUtils.generate(user.getId()))
+                            .build());
         } else {
             log.error("User not found, login: {}.", request.getLogin());
             throw new PreAuthenticatedCredentialsNotFoundException("The combination of login and password is not valid.");

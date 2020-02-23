@@ -35,8 +35,8 @@ public class JwtUtils {
         return !isTokenExpired(token);
     }
 
-    public Optional<String> getUserId(String token) {
-        return getClaimValue(token, CLAIM_KEY_USER_ID, String.class);
+    public Optional<Long> getUserId(String token) {
+        return getClaimValue(token, CLAIM_KEY_USER_ID, Long.class);
     }
 
     private <T> Optional<T> getClaimValue(String token, String field, Class<T> clazz) {
@@ -73,4 +73,5 @@ public class JwtUtils {
     public static Date asDate(LocalDateTime value) {
         return Date.from(value.atZone(ZoneId.systemDefault()).toInstant());
     }
+
 }

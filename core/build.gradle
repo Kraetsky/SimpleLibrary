@@ -28,6 +28,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-logging', version: '2.2.4.RELEASE'

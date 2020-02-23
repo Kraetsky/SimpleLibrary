@@ -40,6 +40,7 @@ import {AuthInterceptor} from './interceptor';
 import {AuthService} from './service/auth.service';
 import {UsersService} from './service/users.service';
 import { IndexComponent } from './index/index.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { IndexComponent } from './index/index.component';
     BookModalComponent,
     LoginComponent,
     RegisterComponent,
-    IndexComponent
+    IndexComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

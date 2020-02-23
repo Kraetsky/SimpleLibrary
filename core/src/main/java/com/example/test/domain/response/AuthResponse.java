@@ -14,4 +14,5 @@ public class AuthResponse {
     private Long userId;
     private Long expiresIn;
     private String idToken;
+
 }
