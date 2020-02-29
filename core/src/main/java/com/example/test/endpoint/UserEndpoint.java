@@ -13,7 +13,7 @@ public class UserEndpoint {
 
     private final UserService userService;
 
-    @PostMapping("/current")
+    @GetMapping("/current")
     public Response getCurrentUser() {
         return Response.from(userService::getCurrentUser);
     }

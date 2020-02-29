@@ -1,10 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="main">
   <div class="header-wrapper">
+    <button class="back-button" mat-raised-button color="primary" routerLink="/" [disabled]="isLoggedOut()">Main Page</button>
     <h1>
       Welcome to {{ title }}!
     </h1>
-    <button mat-raised-button color="accent" (click)="logout()" [disabled]="isLoggedIn()">Log Out</button>
+    <button class="login-button" mat-raised-button color="accent" (click)="logout()" [disabled]="isLoggedOut()">Log Out</button>
   </div>
   <router-outlet></router-outlet>
 

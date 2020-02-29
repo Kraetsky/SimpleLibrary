@@ -6,15 +6,18 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './index/index.component';
 import {UserComponent} from './user/user.component';
+import {AuthenticationGuard} from './security/authentication-guard';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'books',
     component: BookListComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: 'login',
@@ -25,8 +28,13 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'user/:id',
-    component: UserComponent
+    path: 'user-details',
+    component: UserComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 

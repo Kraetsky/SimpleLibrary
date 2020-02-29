@@ -1,3 +1,38 @@
-<p>
-  user works!
-</p>
+<div class="menu">
+  <h2>Your user information:</h2>
+
+    <div class="form" [formGroup]="userForm">
+      <div class="photo">
+        <div class="image" [style.backgroundImage]="'url('+ imageUrl +')'"></div>
+        <div>
+          <input
+            style="display: none"
+            type="file" (change)="onFileChanged($event)"
+            #fileInput>
+          <button mat-raised-button color="primary" (click)="fileInput.click()">Select Profile Photo</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>Name:</div>
+        <input matInput formControlName="name" required type="text">
+      </div>
+      <div class="form-row">
+        <div>Login:</div>
+        <input matInput formControlName="login" required type="text">
+      </div>
+      <div class="form-row">
+        <div>Password:</div>
+        <input matInput formControlName="password" type="password" required>
+      </div>
+      <div class="form-row">
+        <div>Email:</div>
+        <input matInput formControlName="email" type="email" required>
+      </div>
+      <div class="form-row">
+        <div>Phone number:</div>
+        <input matInput formControlName="phoneNumber" type="text" required>
+      </div>
+    </div>
+  <div class="buttons"></div>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>

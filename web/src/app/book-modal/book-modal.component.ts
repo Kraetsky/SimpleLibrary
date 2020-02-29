@@ -27,10 +27,7 @@ export class BookModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
-    console.log(ModalMode.UPDATE.valueOf());
     if (this.data.mode === ModalMode.UPDATE.valueOf()) {
-      console.log(this.data.book);
       this.editMode = true;
       this.form = this.fb.group(this.data.book);
     }

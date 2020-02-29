@@ -9,13 +9,12 @@ import {User} from '../domain/user';
 })
 export class IndexComponent implements OnInit {
 
-  user: User;
 
-  constructor(private usersService: UsersService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.usersService.getCurrentUser().subscribe(res => this.user = res);
+
   }
 
 }

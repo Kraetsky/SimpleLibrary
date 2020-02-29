@@ -5,12 +5,21 @@ h1 {
 .header-wrapper {
   text-align: center;
   display: flex;
+
   h1 {
     margin: 0 auto;
   }
+
   button {
-    margin-right: 60px;
     height: 40px;
     margin-top: 20px;
+  }
+
+  .login-button {
+    margin-right: 60px;
+  }
+
+  .back-button {
+    margin-left: 60px;
   }
 }

@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -39,14 +40,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint()).and()
-                .authorizeRequests().antMatchers("/").permitAll().and()
-                .authorizeRequests().antMatchers("/console/**").permitAll()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .authorizeRequests()
+                .antMatchers("/api/login").permitAll()
+                .antMatchers("/console/**").permitAll()
                 .anyRequest().authenticated()
-                .and().addFilterBefore(authCookieFilter(), UsernamePasswordAuthenticationFilter.class);
+                .and().addFilterBefore(authFilter(), UsernamePasswordAuthenticationFilter.class);
         httpSecurity.headers().frameOptions().disable();
     }
 
-    private AuthFilter authCookieFilter() {
+    private AuthFilter authFilter() {
         UserService userService = getApplicationContext().getBean(UserService.class);
         return new AuthFilter(jwtUtils(), userService);
     }

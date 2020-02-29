@@ -36,11 +36,13 @@ import { BookModalComponent } from './book-modal/book-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {AuthInterceptor} from './interceptor';
+import {AuthInterceptor} from './security/interceptor';
 import {AuthService} from './service/auth.service';
 import {UsersService} from './service/users.service';
 import { IndexComponent } from './index/index.component';
 import { UserComponent } from './user/user.component';
+import {AuthenticationGuard} from './security/authentication-guard';
+import {FileService} from './service/file.service';
 
 
 @NgModule({
@@ -92,7 +94,9 @@ import { UserComponent } from './user/user.component';
       multi: true,
     },
     AuthService,
-    UsersService
+    UsersService,
+    FileService,
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [
